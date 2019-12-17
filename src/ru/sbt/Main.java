@@ -1,15 +1,19 @@
 package ru.sbt;
 
-import java.util.Scanner;
+import ru.sbt.JsonSerialiser.JsonSerializer;
+
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IllegalAccessException {
-/*        SomeClass o = new SomeClass();
-        System.out.println(o.getClass());
-        Class<?> clazz = o.getClass();
-        System.out.println(clazz.getDeclaredFields());*/
         Scanner scanner = new Scanner(System.in);
-        Person person = new Person("Alex",20,);
-        JsonSerialasier.SerialaseObject(person);
+        ArrayList<Integer> checkList = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            checkList.add(scanner.nextInt());
+        }
+        Person person = new Person("Alex",20, checkList);
+        Serializer serializer = new JsonSerializer();
+        serializer.serialize(person);
+        serializer.serialize(checkList);
     }
 }
